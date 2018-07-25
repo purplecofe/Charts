@@ -184,10 +184,10 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
     }
     
     /// - returns: `true` if drawing values above bars is enabled, `false` ifnot
-    open var isDrawValueAboveBarEnabled: Bool { return (renderer as! CombinedChartRenderer).drawValueAboveBarEnabled }
+    open var isDrawValueAboveBarEnabled: Bool { return drawValueAboveBarEnabled }
     
     /// - returns: `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
-    open var isDrawBarShadowEnabled: Bool { return (renderer as! CombinedChartRenderer).drawBarShadowEnabled }
+    open var isDrawBarShadowEnabled: Bool { return drawBarShadowEnabled }
     
     open var isDrawRoundedBarsEnabled: Bool { return drawRoundedBarsEnable }
     

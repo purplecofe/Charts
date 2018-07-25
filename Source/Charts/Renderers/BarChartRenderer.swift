@@ -392,19 +392,19 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
             }
 
             // Create and append the corresponding accessibility element to accessibilityOrderedElements
-            if let chart = dataProvider as? BarChartView
-            {
-                let element = createAccessibleElement(withIndex: j,
-                                                      container: chart,
-                                                      dataSet: dataSet,
-                                                      dataSetIndex: index,
-                                                      stackSize: stackSize)
-                { (element) in
-                    element.accessibilityFrame = barRect
-                }
-
-                accessibilityOrderedElements[j/stackSize].append(element)
-            }
+//            if let chart = dataProvider as? BarChartView
+//            {
+//                let element = createAccessibleElement(withIndex: j,
+//                                                      container: chart,
+//                                                      dataSet: dataSet,
+//                                                      dataSetIndex: index,
+//                                                      stackSize: stackSize)
+//                { (element) in
+//                    element.accessibilityFrame = barRect
+//                }
+//
+//                accessibilityOrderedElements[j/stackSize].append(element)
+//            }
         }
         
         context.restoreGState()
