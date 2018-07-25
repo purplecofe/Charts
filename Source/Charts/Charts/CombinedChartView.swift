@@ -15,6 +15,7 @@ import CoreGraphics
 /// This chart class allows the combination of lines, bars, scatter and candle data all displayed in one chart area.
 open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
 {
+    
     /// the fill-formatter used for determining the position of the fill-line
     internal var _fillFormatter: IFillFormatter!
     
@@ -176,11 +177,19 @@ open class CombinedChartView: BarLineChartViewBase, CombinedChartDataProvider
         set { (renderer as! CombinedChartRenderer).drawBarShadowEnabled = newValue }
     }
     
+    @objc open var drawRoundedBarsEnable: Bool
+    {
+        get { return (renderer as! CombinedChartRenderer).drawRoundedBarsEnabled }
+        set { (renderer as! CombinedChartRenderer).drawRoundedBarsEnabled = newValue }
+    }
+    
     /// - returns: `true` if drawing values above bars is enabled, `false` ifnot
     open var isDrawValueAboveBarEnabled: Bool { return (renderer as! CombinedChartRenderer).drawValueAboveBarEnabled }
     
     /// - returns: `true` if drawing shadows (maxvalue) for each bar is enabled, `false` ifnot
     open var isDrawBarShadowEnabled: Bool { return (renderer as! CombinedChartRenderer).drawBarShadowEnabled }
+    
+    open var isDrawRoundedBarsEnabled: Bool { return drawRoundedBarsEnable }
     
     /// the order in which the provided data objects should be drawn.
     /// The earlier you place them in the provided array, the further they will be in the background. 

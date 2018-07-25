@@ -369,13 +369,26 @@ open class BarChartRenderer: BarLineScatterCandleBubbleRenderer
                 context.setFillColor(dataSet.color(atIndex: j).cgColor)
             }
             
-            context.fill(barRect)
+            if dataProvider.isDrawRoundedBarsEnabled {
+                var rounedRect = barRect
+                rounedRect.size.height = rounedRect.size.height - 10
+                UIBezierPath(roundedRect: rounedRect, cornerRadius: floor(barRect.size.width / 2)).fill()
+            } else {
+                context.fill(barRect)
+            }
             
             if drawBorder
             {
                 context.setStrokeColor(borderColor.cgColor)
                 context.setLineWidth(borderWidth)
-                context.stroke(barRect)
+                
+                if dataProvider.isDrawRoundedBarsEnabled {
+                    var rounedRect = barRect
+                    rounedRect.size.height = rounedRect.size.height - 10
+                    UIBezierPath(roundedRect: rounedRect, cornerRadius: floor(barRect.size.width / 2)).fill()
+                } else {
+                    context.stroke(barRect)
+                }
             }
 
             // Create and append the corresponding accessibility element to accessibilityOrderedElements
